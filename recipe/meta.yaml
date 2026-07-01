@@ -77,7 +77,7 @@ outputs:
         - test -f $PREFIX/lib/libxrl${SHLIB_EXT}                   # [unix]
         - test -f $PREFIX/lib/libxrlf03${SHLIB_EXT}                # [unix]
         - test -f $PREFIX/lib/pkgconfig/libxrl.pc                  # [unix]
-        - cd tests && bash test.sh                                 # [unix]
+        - cd tests && bash test.sh                                 # [unix and build_platform == target_platform]
         - if not exist %LIBRARY_LIB%\\pkgconfig\\libxrl.pc exit 1  # [win]
         - if not exist %LIBRARY_LIB%\\xrl.lib exit 1               # [win]
         - if not exist %LIBRARY_INC%\\xraylib\\xraylib.h exit 1    # [win]
@@ -94,11 +94,18 @@ outputs:
       - Lib/site-packages/_xraylib*           # [win]
     requirements:
       build:
+        - python                                 # [build_platform != target_platform]
+        - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+        - cython                                 # [build_platform != target_platform]
+        - numpy                                  # [build_platform != target_platform]
         - {{ compiler("c") }}
         - {{ stdlib("c") }}
       host:
         - python
+        - meson
+        - setuptools
         - numpy
+        - cython
         - {{ pin_subpackage("libxraylib", exact=True) }}
       run:
         - python
