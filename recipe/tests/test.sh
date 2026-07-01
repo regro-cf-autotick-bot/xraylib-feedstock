@@ -15,7 +15,7 @@ ${CXX} test.cpp $(pkg-config --cflags --libs libxrl) ${rpath} -o test_cpp
 ./test_cpp
 
 echo "--- Fortran ---"
-${FC} test.f90 $(pkg-config --cflags --libs libxrlf03) -I"${PREFIX}/include/xraylib" ${rpath} -o test_fortran
+${FC} test.f90 $(pkg-config --cflags --libs libxrlf03 libxrl) -I"${PREFIX}/include/xraylib" ${rpath} -o test_fortran
 ./test_fortran
 
 echo "All tests passed."
