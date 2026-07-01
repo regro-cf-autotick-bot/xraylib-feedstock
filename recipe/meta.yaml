@@ -102,6 +102,7 @@ outputs:
         - {{ pin_subpackage("libxraylib", exact=True) }}
       run:
         - python
+        - {{ pin_subpackage("libxraylib", max_pin="x") }}
     test:
       imports:
         - xraylib
