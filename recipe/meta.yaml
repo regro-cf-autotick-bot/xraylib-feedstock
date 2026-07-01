@@ -19,7 +19,7 @@ requirements:
   build:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - python                                 # [build_platform != target_platform]
-    - numpy
+    - numpy                                  # [build_platform != target_platform]
     - pkg-config  # [unix]
     - ninja
     - swig
