@@ -1,7 +1,7 @@
 {% set version = "4.2.1" %}
 
 package:
-  name: xraylib
+  name: xraylib-split
   version: {{ version }}
 
 source:
@@ -9,11 +9,7 @@ source:
   sha256: 64f3ffddb327f265c13f05d17b356125a85634d0295be0f0d07bf4b7f9daeb77
 
 build:
-  number: 0
-  ignore_run_exports_from:
-    - {{ compiler('cxx') }}
-  run_exports:
-    - {{ pin_subpackage('xraylib', max_pin='x') }}
+  number: 1
 
 requirements:
   build:
@@ -33,20 +29,66 @@ requirements:
     - meson
     - setuptools
     - numpy
-  run:
-    - python
-    - ucrt  # [win]
 
-test:
-  commands:
-    - test -f $PREFIX/include/xraylib/xraylib.mod  # [unix]
-    - if not exist %LIBRARY_LIB%\\pkgconfig\\libxrl.pc exit 1  # [win]
-    - if not exist %LIBRARY_LIB%\\xrl.lib exit 1  # [win]
-    - if not exist %LIBRARY_INC%\\xraylib\\xraylib.h exit 1  # [win]
-    - if not exist %LIBRARY_BIN%\\xrl-11.dll exit 1  # [win]
-  imports:
-    - xraylib
-    - xraylib_np
+outputs:
+  - name: libxraylib
+    build:
+      ignore_run_exports_from:
+        - {{ compiler('cxx') }}
+      run_exports:
+        - {{ pin_subpackage("libxraylib", max_pin="x") }}
+    files:
+      - lib/libxrl*                       # [unix]
+      - lib/pkgconfig/libxrl*.pc          # [unix]
+      - include/xraylib/*                 # [unix]
+      - Library/bin/xrl*.dll              # [win]
+      - Library/lib/xrl*.lib              # [win]
+      - Library/lib/pkgconfig/libxrl*.pc  # [win]
+      - Library/include/xraylib/*         # [win]
+    requirements:
+      build:
+        - {{ compiler("fortran") }}  # [unix]
+        - {{ compiler("c") }}
+        - {{ stdlib("c") }}
+        - {{ compiler("cxx") }}
+      run:
+        - ucrt  # [win]
+    test:
+      commands:
+        - test -f $PREFIX/include/xraylib/xraylib.h                # [unix]
+        - test -f $PREFIX/include/xraylib/xraylib++.h              # [unix]
+        - test -f $PREFIX/include/xraylib/xraylib.mod              # [unix]
+        - test -f $PREFIX/lib/libxrl${SHLIB_EXT}                   # [unix]
+        - test -f $PREFIX/lib/libxrlf03${SHLIB_EXT}                # [unix]
+        - test -f $PREFIX/lib/pkgconfig/libxrl.pc                  # [unix]
+        - if not exist %LIBRARY_LIB%\\pkgconfig\\libxrl.pc exit 1  # [win]
+        - if not exist %LIBRARY_LIB%\\xrl.lib exit 1               # [win]
+        - if not exist %LIBRARY_INC%\\xraylib\\xraylib.h exit 1    # [win]
+        - if not exist %LIBRARY_BIN%\\xrl-11.dll exit 1            # [win]
+
+  - name: xraylib
+    build:
+      run_exports:
+        - {{ pin_subpackage("xraylib", max_pin="x") }}
+    files:
+      - lib/python*/site-packages/xraylib*    # [unix]
+      - lib/python*/site-packages/_xraylib*   # [unix]
+      - Lib/site-packages/xraylib*            # [win]
+      - Lib/site-packages/_xraylib*           # [win]
+    requirements:
+      build:
+        - {{ compiler("c") }}
+        - {{ stdlib("c") }}
+      host:
+        - python
+        - numpy
+        - {{ pin_subpackage("libxraylib", exact=True) }}
+      run:
+        - python
+    test:
+      imports:
+        - xraylib
+        - xraylib_np
 
 about:
   license: BSD-3-Clause
@@ -56,6 +98,7 @@ about:
   summary: A library for X-ray matter interaction cross sections for X-ray fluorescence applications
 
 extra:
+  feedstock-name: xraylib
   recipe-maintainers:
     - ericdill
     - tacaswell
