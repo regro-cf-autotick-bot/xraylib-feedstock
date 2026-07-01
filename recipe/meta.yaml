@@ -54,6 +54,17 @@ outputs:
       run:
         - ucrt  # [win]
     test:
+      requires:
+        - {{ compiler('c') }}        # [unix]
+        - {{ compiler('cxx') }}      # [unix]
+        - {{ compiler('fortran') }}  # [unix]
+        - {{ stdlib("c") }}          # [unix]
+        - pkg-config                 # [unix]
+      files:
+        - tests/test.c
+        - tests/test.cpp
+        - tests/test.f90
+        - tests/test.sh
       commands:
         - test -f $PREFIX/include/xraylib/xraylib.h                # [unix]
         - test -f $PREFIX/include/xraylib/xraylib++.h              # [unix]
@@ -61,6 +72,7 @@ outputs:
         - test -f $PREFIX/lib/libxrl${SHLIB_EXT}                   # [unix]
         - test -f $PREFIX/lib/libxrlf03${SHLIB_EXT}                # [unix]
         - test -f $PREFIX/lib/pkgconfig/libxrl.pc                  # [unix]
+        - cd tests && bash test.sh                                 # [unix]
         - if not exist %LIBRARY_LIB%\\pkgconfig\\libxrl.pc exit 1  # [win]
         - if not exist %LIBRARY_LIB%\\xrl.lib exit 1               # [win]
         - if not exist %LIBRARY_INC%\\xraylib\\xraylib.h exit 1    # [win]
