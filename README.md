@@ -13,7 +13,14 @@ Current build status
 ====================
 
 
-<table>
+<table><tr>
+    <td>GitHub Actions</td>
+    <td>
+      <a href="https://github.com/conda-forge/xraylib-feedstock/actions/workflows/conda-build.yml">
+        <img src="https://github.com/conda-forge/xraylib-feedstock/actions/workflows/conda-build.yml/badge.svg?event=push&branch=main">
+      </a>
+    </td>
+  </tr>
     
   <tr>
     <td>Azure</td>
@@ -27,41 +34,6 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_64_python3.10.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=2224&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/xraylib-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_python3.10.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_64_python3.11.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=2224&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/xraylib-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_python3.11.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_64_python3.12.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=2224&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/xraylib-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_python3.12.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_64_python3.13.____cp313</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=2224&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/xraylib-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_python3.13.____cp313" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_64_python3.14.____cp314</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=2224&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/xraylib-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_python3.14.____cp314" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
               <td>linux_aarch64_python3.10.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=2224&branchName=main">
@@ -167,41 +139,6 @@ Current build status
                 </a>
               </td>
             </tr><tr>
-              <td>osx_arm64_python3.10.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=2224&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/xraylib-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_python3.10.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_arm64_python3.11.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=2224&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/xraylib-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_python3.11.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_arm64_python3.12.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=2224&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/xraylib-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_python3.12.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_arm64_python3.13.____cp313</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=2224&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/xraylib-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_python3.13.____cp313" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_arm64_python3.14.____cp314</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=2224&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/xraylib-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_python3.14.____cp314" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
               <td>win_64_python3.10.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=2224&branchName=main">
@@ -249,6 +186,7 @@ Current release info
 
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-libxraylib-green.svg)](https://anaconda.org/conda-forge/libxraylib) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libxraylib.svg)](https://anaconda.org/conda-forge/libxraylib) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libxraylib.svg)](https://anaconda.org/conda-forge/libxraylib) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libxraylib.svg)](https://anaconda.org/conda-forge/libxraylib) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-xraylib-green.svg)](https://anaconda.org/conda-forge/xraylib) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/xraylib.svg)](https://anaconda.org/conda-forge/xraylib) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/xraylib.svg)](https://anaconda.org/conda-forge/xraylib) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/xraylib.svg)](https://anaconda.org/conda-forge/xraylib) |
 
 Installing xraylib
@@ -261,41 +199,41 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `xraylib` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `libxraylib, xraylib` can be installed with `conda`:
 
 ```
-conda install xraylib
-```
-
-or with `mamba`:
-
-```
-mamba install xraylib
-```
-
-It is possible to list all of the versions of `xraylib` available on your platform with `conda`:
-
-```
-conda search xraylib --channel conda-forge
+conda install libxraylib xraylib
 ```
 
 or with `mamba`:
 
 ```
-mamba search xraylib --channel conda-forge
+mamba install libxraylib xraylib
+```
+
+It is possible to list all of the versions of `libxraylib` available on your platform with `conda`:
+
+```
+conda search libxraylib --channel conda-forge
+```
+
+or with `mamba`:
+
+```
+mamba search libxraylib --channel conda-forge
 ```
 
 Alternatively, `mamba repoquery` may provide more information:
 
 ```
 # Search all versions available on your platform:
-mamba repoquery search xraylib --channel conda-forge
+mamba repoquery search libxraylib --channel conda-forge
 
-# List packages depending on `xraylib`:
-mamba repoquery whoneeds xraylib --channel conda-forge
+# List packages depending on `libxraylib`:
+mamba repoquery whoneeds libxraylib --channel conda-forge
 
-# List dependencies of `xraylib`:
-mamba repoquery depends xraylib --channel conda-forge
+# List dependencies of `libxraylib`:
+mamba repoquery depends libxraylib --channel conda-forge
 ```
 
 
