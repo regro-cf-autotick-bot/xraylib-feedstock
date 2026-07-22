@@ -13,7 +13,7 @@ source:
     - 0001-Fix-meson-bug.patch
 
 build:
-  number: 1
+  number: 2
 
 requirements:
   build:
@@ -24,7 +24,7 @@ requirements:
     - pkg-config  # [unix]
     - ninja
     - swig
-    - {{ compiler('fortran') }}  # [unix]
+    - {{ compiler("fortran") }}
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
@@ -52,7 +52,7 @@ outputs:
       - Library/include/xraylib/*         # [win]
     requirements:
       build:
-        - {{ compiler("fortran") }}  # [unix]
+        - {{ compiler("fortran") }}
         - {{ compiler("c") }}
         - {{ stdlib("c") }}
         - {{ compiler("cxx") }}
@@ -62,7 +62,7 @@ outputs:
       requires:
         - {{ compiler('c') }}        # [unix]
         - {{ compiler('cxx') }}      # [unix]
-        - {{ compiler('fortran') }}  # [unix]
+        - {{ compiler("fortran") }}
         - {{ stdlib("c") }}          # [unix]
         - pkg-config                 # [unix]
       files:
