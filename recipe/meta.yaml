@@ -7,10 +7,6 @@ package:
 source:
   url: https://github.com/tschoonj/xraylib/releases/download/xraylib-{{ version }}/xraylib-{{ version }}.tar.xz
   sha256: a86a8f217d7945e6de8192cc5850869e63123eb726c4d5ebae95f5316ee048d6
-  patches:
-    # meson's python.extension_module() requires a scalar install_tag;
-    # backport of upstream 3b53dae2ad9c382409af146fa9d3037953452fed
-    - 0001-Fix-meson-bug.patch
 
 build:
   number: 0
